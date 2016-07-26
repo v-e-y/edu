@@ -22,11 +22,11 @@ $regions = [
 //print_r($regions);
 
 echo '<ul class="regions">';
-foreach ($regions as $key => $value) {
-    echo '<li class="regions-region">' . $key . '</li>';
-    if (is_array($value)) {
+foreach ($regions as $region => $sitys) {
+    echo '<li class="regions-region">' . $region . '</li>';
+    if (is_array($sitys)) {
         echo '<li class="regions-region-sitys">' . '<ul>';
-        foreach ($value as $sity) {
+        foreach ($sitys as $sity) {
             echo '<li class="regions-region-sitys-syty">' . $sity . '</li>';
         }
         echo '</ul>' . '</li>';
