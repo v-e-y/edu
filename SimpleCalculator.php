@@ -21,15 +21,16 @@ function doCalc($valueArr)
         $calcOption = $valueArr['calcOption'];
     }
 
-    if ($calcOption = '+') {
+    if ($calcOption == '+') {
         $calcResult = $integerOne + $integerTwo;
-    } elseif ($calcOption = '-') {
+    } elseif ($calcOption == '-') {
         $calcResult = $integerOne - $integerTwo;
-    } elseif ($calcOption = '/') {
+    } elseif ($calcOption == '/') {
         $calcResult = $integerOne / $integerTwo;
-    } elseif ($calcOption = '*') {
+    } elseif ($calcOption == '*') {
         $calcResult = $integerOne * $integerTwo;
     }
+
 
     return $calcResult;
 }
