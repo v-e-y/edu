@@ -59,9 +59,7 @@ if (!empty($_POST)) {
                         <input type="number" step="0.01"  class="form-control" name="integer-one" id="integer-one" placeholder="0" required autofocus>
                     </div>
                     <div class="form-group">
-                        <label>
-                            <input type="text" class="form-control" name="calcOption" id="calcOption" placeholder="+ - * /" required>
-                        </label>
+                        <input type="text" class="form-control" name="calcOption" id="calcOption" placeholder="+ - * /" required>
                     </div>
                     <div class="form-group">
                         <input type="number" step="0.01" class="form-control" name="integer-two" id="integer-two" placeholder="0" required>
