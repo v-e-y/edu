@@ -1,6 +1,6 @@
 <?php
 // Write simple calculator
-// $valueArr - it's a array with values from form
+// $valueArr - array with values from form
 function checkTheFormValue($valueArr)
 {
     // if $valueArr not false and is array
@@ -9,8 +9,12 @@ function checkTheFormValue($valueArr)
             // TODO Розібратися з throw new Exception('All fealds should not be ampty'), чому не працює.
             $postValue = !empty($postValue) ? $postValue : false;
         }
+        return $valueArr;
+    } else {
+        // TODO Здаєтся тут щось не так.
+        return false;
     }
-    return $valueArr;
+    
 }
 
 function doCalc($valueArr)
@@ -31,14 +35,15 @@ function doCalc($valueArr)
         $calcResult = $integerOne * $integerTwo;
     }
 
-
     return $calcResult;
 }
 
 
 if (!empty($_POST)) {
     $calcFormValues = checkTheFormValue($_POST);
-    $calcResult = doCalc($calcFormValues);
+    if ($calcFormValues) {
+        $calcResult = doCalc($calcFormValues);
+    }
 }
 ?>
 
