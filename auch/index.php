@@ -76,7 +76,7 @@ function userIsAuch()
         <?php } else { ?>
         <section class="well well-lg">
             <p> Hi <?php echo getUserName(); ?></p>
-            <p><a href="/logout.php" title="" rel="nofollow" role="link">Вийти</a></p>
+            <p><a href="/logout.php" title="Вийти" rel="nofollow" role="link">Вийти</a></p>
         </section>
         <?php } ?>
     </main>
