@@ -31,5 +31,6 @@ function depositAccount($amount, $depositRate = 3, $duration = 12)
         // Повертаємо суму яку отримаэ вкладник.
         return $amount += ((float)$amount * (float)$depositRate);
     }
+    
     return 'Ops, some error in code';
 }
