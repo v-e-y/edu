@@ -1,9 +1,9 @@
 <?php
+declare(strict_types = 1);
 
 /**
  * 
  */
- // TODO 
 class ParseXml
 {
     
@@ -25,8 +25,8 @@ class ParseXml
         }
     }
 
-    // Отримуємо xml об`єкт
     /*
+    * Отримуємо xml об`єкт
     * return data or false
     */
     private function getContantFromUrl()
@@ -40,7 +40,7 @@ class ParseXml
         return $xmlContant;
     }
 
-    private function xmlToArray()
+    private function xmlToArray(): array
     {   
         try {
             $arrayWithData = json_decode(json_encode($this->getContantFromUrl()), TRUE);
@@ -57,14 +57,14 @@ class ParseXml
         return $doneArray;
     }
 
-    private function sortArray()
+    private function sortArray(): array
     {
         $arraToSort = $this->xmlToArray();
     }
 
     public function showSortedArray()
     {
-
+        //
     }
 
 }
