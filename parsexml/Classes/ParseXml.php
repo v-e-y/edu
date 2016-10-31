@@ -6,7 +6,6 @@ declare(strict_types = 1);
  */
 class ParseXml
 {
-    
     private $urlToXmlFile;
     
     function __construct($urlWithXmlFile)
@@ -40,6 +39,10 @@ class ParseXml
         return $xmlContant;
     }
 
+    /*
+    * convert jbjekt to array
+    * return array
+    */
     private function xmlToArray(): array
     {   
         try {
