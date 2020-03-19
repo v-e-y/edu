@@ -27,8 +27,28 @@ class Template
     {
         $this->templatesFolder = $newBaseTemplateFolder;
     }
+    
+    /**
+     * Check is template file exists and return full path
+     * @param string $templateName
+     * @return string
+     */
+    protected function getTemplateToView (string $templateName):string 
+    {
+        // TODO refactor error result, function should return string
+        // get template file name
+        // get templates folder name
+        // check is file exists
+        // return full path to template file
+        if ($templateName) {
+            $templateFile = __DIR__ . "{$this->templatesFolder}/{$templateName}.php";
+            if (file_exists($templateFile)) {
+                return file_exists($templateFile) ? $templateFile : false;
+            }
+        }
+        return false;
+    }
 
-    // Template to view/show. Find and return
 
     // Prepare template and data to show
     
