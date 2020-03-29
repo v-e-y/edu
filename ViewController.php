@@ -1,11 +1,13 @@
 <?php declare(strict_types=1);
+// version 0.0.1
+
 /**
  * Base/Simple view class
  */
 
 class Template
 {
-    // Folder with templates
+    
     /**
      * base folder with templates
      */
@@ -17,7 +19,6 @@ class Template
         $this->templatesFolder = $templatesFolder ?? 'template';
     }
 
-    // Method to change templates folder
     /**
      * Change base template folder
      * @param string $newBaseTemplateFolder
@@ -36,10 +37,6 @@ class Template
     protected function getTemplateToView (string $templateName):string 
     {
         // TODO refactor error result, function should return string
-        // get template file name
-        // get templates folder name
-        // check is file exists
-        // return full path to template file
         if ($templateName) {
             $templateFile = __DIR__ . "{$this->templatesFolder}/{$templateName}.php";
             if (file_exists($templateFile)) {
@@ -51,6 +48,25 @@ class Template
 
 
     // Prepare template and data to show
+    protected function render (string $templateToRender, array $dataToView)
+    {
+        $templateToRender = $this->getTemplateToView($templateToRender);
+        if ($templateToRender) {
+            return $renderOutput = $this->renderTemplate($templateToRender, $dataToView);
+        } else {
+            // TODO refactor
+            return false;
+        }
+    }
     
     // Return view
+    protected function renderTemplate (/*string $templateToRender, array $dataToView*/)
+    {
+        ob_start();
+        foreach (func_get_args()[1] as $key => $value) {
+            ${$key} = $value;
+        }
+        include func_get_args()[0];
+        return ob_get_clean();
+    }
 }
