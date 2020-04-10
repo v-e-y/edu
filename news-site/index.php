@@ -7,9 +7,7 @@
  * Реалізувати view
  */
 
+ require_once __DIR__ . '\autoload.php';
 
 
-
-
-
-echo "hi";
+ echo dirname(__FILE__);

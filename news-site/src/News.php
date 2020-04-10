@@ -1,5 +1,5 @@
 <?php declare(strict_types=1);
-namespace Models;
+namespace src;
 
 
 class News extends DB
@@ -12,12 +12,19 @@ class News extends DB
     // Get one news
 
     // Get all news
-    public static function getAllNews():array
+    public static function getAllNews() :array
     {
         return [];
     }
 
     // saveOneNews
 
+    // Help methods:
+    
+    // Is news exist
+    public static function isNewsExist(int $newsId) :bool
+    {
+        // Check is id exist in Db and return result
+    }
 
 }

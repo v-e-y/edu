@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
-namespace Controllers;
+namespace src\Controller;
 
-use \Models\News as News;
+use \src\News as News;
 
 class NewsController
 {
@@ -10,9 +10,12 @@ class NewsController
     {
         // if $newsId is empty get all news
         if (!$newsId) {
-            
+            // Return all news
+        } elseif ($newsId) {
+            // Check and get news with id equal $newsId
+        } else {
+            // Redirect to 404 page and write log
         }
-        return [];
     }
 
     // Add news
