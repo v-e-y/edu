@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
-namespace src;
+//namespace src;
 
 
-class News extends DB
+class News
 {
     // Event data
     private $title;
@@ -27,4 +27,11 @@ class News extends DB
         // Check is id exist in Db and return result
     }
 
+
+    // dev
+    // TODO del this
+    public function test()
+    {
+        echo 'hi there';
+    }
 }

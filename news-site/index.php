@@ -1,4 +1,7 @@
 <?php declare(strict_types=1);
+
+//use \src\News as News;
+
 /**
  * Автозавантаженя классів
  * Відображувати всі новони
@@ -7,7 +10,10 @@
  * Реалізувати view
  */
 
- require_once __DIR__ . '\autoload.php';
+require_once __DIR__ . '\autoload.php';
 
+ $str = new News;
 
- echo dirname(__FILE__);
+ $str->test();
+
+ // echo __DIR__;
