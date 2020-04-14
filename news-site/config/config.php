@@ -10,9 +10,9 @@ return [
         'controllers' => DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'Controller' . DIRECTORY_SEPARATOR
     ],
     'db' => [
-        'host' => '',
-        'dbName' => '',
-        'dbUser' => '',
-        'dbPassword' => ''
+        'host' => 'vey.mysql.tools',
+        'name' => 'vey_gcard',
+        'user' => 'vey_gcard',
+        'password' => 'whntxudc'
     ]
 ];

@@ -12,8 +12,21 @@
 
 require_once __DIR__ . '\autoload.php';
 
- $str = new News;
+$rq = new RouteController($_SERVER);
+print_r($_REQUEST);
+echo '<br>';
+if ($rq->getRequestUri() === '/') {
+    echo 'all news';
+} else {
+    var_dump($rq->getRequestUri());
+}
 
- $str->test();
 
- // echo __DIR__;
+/*
+if ($_SERVER['REQUEST_URI'] === '/') {
+    echo 'index';
+} else {
+    echo 'not index';
+    print_r($_REQUEST);
+}
+*/
