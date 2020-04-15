@@ -1,27 +1,33 @@
 <?php declare(strict_types=1);
 
-//use \src\News as News;
+// dev TODO replace this
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
 
-/**
- * Автозавантаженя классів
- * Відображувати всі новони
- * Показати одну новину
- * Додавати новину
- * Реалізувати view
- */
+define('DIR', __DIR__);
 
-require_once __DIR__ . '\autoload.php';
+require DIR . '\autoload.php';
 
-$rq = new RouteController($_SERVER);
-print_r($_REQUEST);
-echo '<br>';
-if ($rq->getRequestUri() === '/') {
+
+
+
+$rq = new RouteController($_REQUEST);
+$n = new NewsController();
+$n->test();
+$rq->test();
+//$rq->router();
+
+
+
+/*
+if (!$rq->getRequestUri()) {
     echo 'all news';
 } else {
-    var_dump($rq->getRequestUri());
+    print_r($rq->getRequestUri());
+    echo 'this | <br>';
 }
-
-
+*/
 /*
 if ($_SERVER['REQUEST_URI'] === '/') {
     echo 'index';
@@ -30,3 +36,13 @@ if ($_SERVER['REQUEST_URI'] === '/') {
     print_r($_REQUEST);
 }
 */
+
+
+
+/**
+ * Автозавантаженя классів
+ * Відображувати всі новини
+ * Показати одну новину
+ * Додавати новину
+ * Реалізувати view
+ */

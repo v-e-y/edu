@@ -1,12 +1,9 @@
 <?php declare(strict_types=1);
-namespace src\Controller;
-
-use \src\News as News;
 
 class NewsController
 {
     // Get news (id=null)
-    public static function getNews(int $newsId = null):array
+    public static function getNews(int $newsId = null)
     {
         // if $newsId is empty get all news
         if (!$newsId) {
@@ -19,4 +16,14 @@ class NewsController
     }
 
     // Add news
+
+
+    /**
+     * dev functions
+     */
+
+    public function test()
+    {
+         echo 'hi from news controller <br>';
+    }
 }
