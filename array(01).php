@@ -1,5 +1,14 @@
 <?php declare(strict_types=1);
+
+$config = require_once __DIR__ . '/config.php';
+// Show errors
+// FIXME Probably should be implemented differently
+$config['errors'];
+
+// Show cod better for view
 echo '<pre>';
+
+
 /*
 * Пусть имеется масив ['fst', 'snd', 'thd', 'fth']. Выведите случайный элемент массива.
 */
@@ -9,6 +18,7 @@ function getArrRandVal (array $arr)
 }
 
 echo getArrRandVal(['fst', 'snd', 'thd', 'fth']) . '<br>';
+
 
 /*
 * Пусть имеется массив ['fst' => 1, 'snd' => 2, 'thd' => 3, 'fth' => 4]. 
@@ -22,6 +32,7 @@ function getArrFromKeysOfArr (array $arr):array
 print_r(getArrFromKeysOfArr(['fst' => 1, 'snd' => 2, 'thd' => 3, 'fth' => 4]));
 echo '<br>';
 
+
 /*
 * Пусть имеется массив ['fst', 'snd', 'thd', 'fth', 'snd', 'thd', 'gt'], 
 * получите из него новый массив содержащий только уникальные значения.
@@ -32,6 +43,7 @@ function getUniqValFromArr (array $arr):array
 }
 
 print_r(getUniqValFromArr(['fst', 'snd', 'thd', 'fth', 'snd', 'thd', 'gt']));
+
 
 /*
 * Решите задачу обмена значений двух целочисленных переменных не прибегая 
@@ -50,7 +62,6 @@ echo '<br>' . $intOne . ' ' . $intTwo . '<br>';
 * Создайте массив со случайным количеством элементов от 5 до 10.
 * Элементы содержат значения от 0 до 100. Отсортируйте от меньшего к большему.
 */
-
 function getRandArrLengthRandVal ():array
 {
     $arr = [];
@@ -60,12 +71,29 @@ function getRandArrLengthRandVal ():array
     
     if (count($arr) > 10 || count($arr) < 5) {
         // FIXME: find how return something else then what I specified in the data type which should return the function
-        return [];
+        return []; // TODO: should return warning
     }
     return $arr;
 }
 
 print_r(getRandArrLengthRandVal());
+
+/*
+* Создайте текстовый файл с названиями месяцев. 
+* Создайте массив с названиями месяцев из содержимого текстового файла.
+*/
+function getArrFrDataInFile ($filePath):array
+{
+    // is file a file
+    if (!is_file($filePath)) {
+        return ['Error: Given file is not a file'];
+    }
+    git $arr = file($filePath);
+
+    return (!count($arr)) ? ['Error: Some fail with file data'] : $arr;
+}
+
+print_r(getArrFrDataInFile($config['data'] . '/month.txt'));
 
 
 
