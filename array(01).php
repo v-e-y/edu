@@ -88,7 +88,7 @@ function getArrFrDataInFile ($filePath):array
     if (!is_file($filePath)) {
         return ['Error: Given file is not a file'];
     }
-    git $arr = file($filePath);
+    $arr = file($filePath);
 
     return (!count($arr)) ? ['Error: Some fail with file data'] : $arr;
 }
