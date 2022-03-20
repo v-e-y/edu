@@ -6,5 +6,11 @@ return [
     // Root to folder with test data
     'data' => __DIR__ . '/data',
     // Functions file root
-    'functions' => __DIR__ . '/functions/functions.php'
+    'functions' => __DIR__ . '/functions/functions.php',
+    'forms' => [
+        'addImf' => [
+            'oneImg' => __DIR__ . '/forms/addOneImg.php',
+            'multipleImgs' => ''
+        ],
+    ]
 ];
