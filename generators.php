@@ -25,21 +25,66 @@ foreach ($res as $value) {
     echo 
 */
 
+//-------------------------------------------------------------------//
+
 /*
-* Reed json file with generator
+* Read json file with generator
 */
 
 $file = new SplFileObject($_SERVER['DOCUMENT_ROOT'] . '/data/example.json');
 
-function freed(SplFileObject $file): Iterator
+function freadGen(SplFileObject $file): Iterator
 {
     while (!$file->eof()) {
         yield $file->fgets();
     }
 }
 
-foreach (freed($file) as $value) {
+foreach (freadGen($file) as $value) {
     echo $value;
 }
 
+//-------------------------------------------------------------------//
 
+/**
+ * Read rss and create collection of items
+*/
+
+$rssUrl = 'https://www.pravda.com.ua/rss/view_pubs/';
+
+$rssXml = new SimpleXMLElement($rssUrl, 0, true);
+
+function getRSSItemGen(SimpleXMLElement $rss): Iterator
+{
+    if ($rss->channel->item) {
+        foreach ($rss->channel->item as $item) {
+            yield $item;
+        }
+    }
+}
+
+final class RssItemsCollection
+{
+    private array $list;
+
+    public function addToTheList(SimpleXMLElement $item): void
+    {
+        $this->list[] = $item;
+    }
+
+    public function getList(): array
+    {
+        return $this->list;
+    }
+}
+
+$rssCollection = new RssItemsCollection();
+
+foreach (getRSSItemGen($rssXml) as $item) {
+    
+    $rssCollection->addToTheList($item);
+}
+
+var_dump($rssCollection->getList());
+
+//-------------------------------------------------------------------//
