@@ -63,28 +63,13 @@ function getRSSItemGen(SimpleXMLElement $rss): Iterator
     }
 }
 
-final class RssItemsCollection
-{
-    private array $list;
-
-    public function addToTheList(SimpleXMLElement $item): void
-    {
-        $this->list[] = $item;
-    }
-
-    public function getList(): array
-    {
-        return $this->list;
-    }
-}
-
-$rssCollection = new RssItemsCollection();
+$rssCollection = new SplDoublyLinkedList();
 
 foreach (getRSSItemGen($rssXml) as $item) {
     
-    $rssCollection->addToTheList($item);
+    $rssCollection->push($item);
 }
 
-var_dump($rssCollection->getList());
+var_dump($rssCollection);
 
 //-------------------------------------------------------------------//
