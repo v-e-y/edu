@@ -1,3 +1,5 @@
+'use strict';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -114,3 +116,11 @@ function calculateWinner(squares) {
     }
     return null;
 }
+
+class TestJsClass {
+    constructor (testString) {
+        this.classString = testString;
+    }
+}
+
+
